@@ -4,7 +4,7 @@ CLASS zcl_carga_biblioteca_4402 DEFINITION
   CREATE PUBLIC .
 
   PUBLIC SECTION.
-  INTERFACES if_oo_adt_classrun.
+    INTERFACES if_oo_adt_classrun.
 
   PROTECTED SECTION.
   PRIVATE SECTION.
@@ -14,55 +14,55 @@ ENDCLASS.
 CLASS zcl_carga_biblioteca_4402 IMPLEMENTATION.
   METHOD if_oo_adt_classrun~main.
 
-   data: lt_acc_categ  type table of ztb_ac_cate_4402,
-          lt_catego    type table of ztb_catego_4402,
-          lt_clientes  type table of ztb_cliente_4402,
-          lt_clnts_lib type table of ztb_clnt_li_4402,
-          lt_libros    type table of ztb_libros_4402.
+    DATA: lt_acc_categ TYPE TABLE OF ztb_ac_cate_4402,
+          lt_catego    TYPE TABLE OF ztb_catego_4402,
+          lt_clientes  TYPE TABLE OF ztb_cliente_4402,
+          lt_clnts_lib TYPE TABLE OF ztb_clnt_li_4402,
+          lt_libros    TYPE TABLE OF ztb_libros_4402.
 
 ******** ztb_ac_cate_4402 ********
     "fill internal table
-    lt_acc_categ = value #(
-    ( bi_categ ='A' tipo_acceso ='1' )
-    ( bi_categ ='B' tipo_acceso ='1' )
-    ( bi_categ ='C' tipo_acceso ='2' )
-    ( bi_categ ='D' tipo_acceso ='2' )
-    ( bi_categ ='E' tipo_acceso ='2' )
-    ( bi_categ ='F' tipo_acceso ='3' )
-    ( bi_categ ='G' tipo_acceso ='3' )
-    ( bi_categ ='H' tipo_acceso ='4' ) ).
+    lt_acc_categ = VALUE #(
+    ( bi_categ = 'A' tipo_acceso = '1' )
+    ( bi_categ = 'B' tipo_acceso = '1' )
+    ( bi_categ = 'C' tipo_acceso = '2' )
+    ( bi_categ = 'D' tipo_acceso = '2' )
+    ( bi_categ = 'E' tipo_acceso = '2' )
+    ( bi_categ = 'F' tipo_acceso = '3' )
+    ( bi_categ = 'G' tipo_acceso = '3' )
+    ( bi_categ = 'H' tipo_acceso = '4' ) ).
 
     "Delete possible entries; insert new entries
-    delete from ztb_ac_cate_4402.
-    insert ztb_ac_cate_4402 from table @lt_acc_categ.
+    DELETE FROM ztb_ac_cate_4402.
+    INSERT ztb_ac_cate_4402 FROM TABLE @lt_acc_categ.
 
-    if sy-subrc eq 0.
-        out->write( |Acceso Categorias: { sy-dbcnt } registros insertados| ).
-    endif.
+    IF sy-subrc EQ 0.
+      out->write( |Acceso Categorias: { sy-dbcnt } registros insertados| ).
+    ENDIF.
 
 ******** ztb_catego_4402 ********
     "fill internal table
-    lt_catego = value #(
-    ( bi_categ ='A' descripcion ='Filosofía, psicología')
-    ( bi_categ ='B' descripcion ='Religión, mitología')
-    ( bi_categ ='C' descripcion ='Ciencias sociales (derecho, política, economía)')
-    ( bi_categ ='D' descripcion ='Ciencias naturales (matemáticas, astronomía, física)')
-    ( bi_categ ='E' descripcion ='Ciencias aplicadas (tecnología, informática)')
-    ( bi_categ ='F' descripcion ='Arte, música, deporte')
-    ( bi_categ ='G' descripcion ='Lengua, poesía, teatro')
-    ( bi_categ ='H' descripcion ='Geografía, historia') ).
+    lt_catego = VALUE #(
+    ( bi_categ = 'A' descripcion = 'Filosofía, psicología' )
+    ( bi_categ = 'B' descripcion = 'Religión, mitología' )
+    ( bi_categ = 'C' descripcion = 'Ciencias sociales (derecho, política, economía)' )
+    ( bi_categ = 'D' descripcion = 'Ciencias naturales (matemáticas, astronomía, física)' )
+    ( bi_categ = 'E' descripcion = 'Ciencias aplicadas (tecnología, informática)' )
+    ( bi_categ = 'F' descripcion = 'Arte, música, deporte' )
+    ( bi_categ = 'G' descripcion = 'Lengua, poesía, teatro' )
+    ( bi_categ = 'H' descripcion = 'Geografía, historia' ) ).
 
     "Delete possible entries; insert new entries
-    delete from ztb_catego_4402.
-    insert ztb_catego_4402 from table @lt_catego.
+    DELETE FROM ztb_catego_4402.
+    INSERT ztb_catego_4402 FROM TABLE @lt_catego.
 
-    if sy-subrc eq 0.
-        out->write( |Categorias: { sy-dbcnt } registros insertados| ).
-    endif.
+    IF sy-subrc EQ 0.
+      out->write( |Categorias: { sy-dbcnt } registros insertados| ).
+    ENDIF.
 
 ******** ztb_cliente_4402 ********
     "fill internal table
-    lt_clientes = value #(
+    lt_clientes = VALUE #(
     ( id_cliente = '005638984K' tipo_acceso = '1' nombre = 'Andrew' apellidos = 'Roberts' email = 'STEPHANIE.ROBERTS@EMAIL.COM' url = 'https://d4.logaligroup.com/wp-content/uploads/2019/11/24.2.png' )
     ( id_cliente = '049320909Q' tipo_acceso = '2' nombre = 'Natalie' apellidos = 'Clark' email = 'PETER.CLARK@EMAIL.COM' url = 'https://d4.logaligroup.com/wp-content/uploads/2019/12/41.png' )
     ( id_cliente = '049573865T' tipo_acceso = '1' nombre = 'Faith' apellidos = 'Black' email = 'DAN.BLACK@EMAIL.COM' url = 'https://d4.logaligroup.com/wp-content/uploads/2019/11/24.2.png' )
@@ -85,15 +85,15 @@ CLASS zcl_carga_biblioteca_4402 IMPLEMENTATION.
     ( id_cliente = '540867547H' tipo_acceso = '5' nombre = 'Adrian' apellidos = 'Young' email = 'PENELOPE.YOUNG@EMAIL.COM' url = 'https://d4.logaligroup.com/wp-content/uploads/2019/11/24.2.png' ) ).
 
     "Delete possible entries; insert new entries
-    delete from ztb_cliente_4402.
-    insert ztb_cliente_4402 from table @lt_clientes.
+    DELETE FROM ztb_cliente_4402.
+    INSERT ztb_cliente_4402 FROM TABLE @lt_clientes.
 
-    if sy-subrc eq 0.
-        out->write( |Clientes: { sy-dbcnt } registros insertados| ).
-    endif.
+    IF sy-subrc EQ 0.
+      out->write( |Clientes: { sy-dbcnt } registros insertados| ).
+    ENDIF.
 
 ******** ztb_clnt_li_4402
-    lt_clnts_lib = value #(
+    lt_clnts_lib = VALUE #(
     ( id_cliente = '005638984K' id_libro = '000001' )
     ( id_cliente = '005638984K' id_libro = '000020' )
     ( id_cliente = '005638984K' id_libro = '000021' )
@@ -125,13 +125,13 @@ CLASS zcl_carga_biblioteca_4402 IMPLEMENTATION.
     ( id_cliente = '489632882D' id_libro = '000019' )
     ( id_cliente = '540867547H' id_libro = '000020' ) ).
     "Delete possible entries; insert new entries
-    delete from ztb_clnt_li_4402.
-    insert ztb_clnt_li_4402 from table @lt_clnts_lib.
+    DELETE FROM ztb_clnt_li_4402.
+    INSERT ztb_clnt_li_4402 FROM TABLE @lt_clnts_lib.
 
 
 ******** ztb_libros_4402 ********
     "fill internal table
-    lt_libros = value #(
+    lt_libros = VALUE #(
     ( id_libro = '000001' bi_categ = 'A' titulo = 'Diccionario de los sentimientos' autor = 'CAGIGAL, Jose Maria' editorial = 'ANAGRAMA' idioma = 'S' paginas = 350 precio = '84.99' moneda = 'USD' formato = 'E' url =
     'https://eltinteroeditorial.com/wp-content/uploads/2017/06/c%C3%B3mo-es-el-proceso-de-edici%C3%B3n.jpg' )
     ( id_libro = '000002' bi_categ = 'A' titulo = 'La selva del lenguaje' autor = 'Hoagland , M.' editorial = 'LATERZ A' idioma = 'S' paginas = 486 precio = 146 moneda = 'USD' formato = 'P' url =
@@ -195,12 +195,12 @@ CLASS zcl_carga_biblioteca_4402 IMPLEMENTATION.
     ( id_libro = '000072' bi_categ = 'G' titulo = 'Aves sin nido' autor = 'Clorinda Matto de Turner' editorial = 'Visor Libros' idioma = 'S' paginas = 356 precio = '34.15' moneda = 'USD' formato = 'P' url =
     'https://eltinteroeditorial.com/wp-content/uploads/2017/06/c%C3%B3mo-es-el-proceso-de-edici%C3%B3n.jpg' ) ).
     "Delete possible entries; insert new entries
-    delete from ztb_libros_4402.
-    insert ztb_libros_4402 from table @lt_libros.
+    DELETE FROM ztb_libros_4402.
+    INSERT ztb_libros_4402 FROM TABLE @lt_libros.
 
-    if sy-subrc eq 0.
-        out->write( |Libros: { sy-dbcnt } registros insertados| ).
-    endif.
+    IF sy-subrc EQ 0.
+      out->write( |Libros: { sy-dbcnt } registros insertados| ).
+    ENDIF.
 
     "Check result in console
     out->write( 'DONE!' ).
